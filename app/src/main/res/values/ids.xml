@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="met_username" type="id">false</item>
+    <item name="met_password" type="id">false</item>
+    <item name="btn_login" type="id">false</item>
+    <item name="btn_signup" type="id">false</item>
+
+    <!--顶部title-->
+    <item name="tv_title" type="id">false</item>
+
+    <!--中间内容-->
+    <item name="fl_content" type="id">false</item>
+
+    <!--底部tab切换-->
+    <item name="ll_conversation" type="id">false</item>
+    <item name="ll_contacts" type="id">false</item>
+    <item name="ll_setting" type="id">false</item>
+
+    <!--ImageButton-->
+    <item name="ib_conversation" type="id">false</item>
+    <item name="ib_contacts" type="id">false</item>
+    <item name="ib_setting" type="id">false</item>
+
+    <!--TextView bottom-->
+    <item name="tv_conversation" type="id">false</item>
+    <item name="tv_contacts" type="id">false</item>
+    <item name="tv_setting" type="id">false</item>
+
+    <!--chattitle-->
+    <item name="tv_chat_title" type="id">false</item>
+
+    <!--发送消息-->
+    <item name="btn_send" type="id">false</item>
+    <item name="iv_more" type="id">false</item>
+
+
+    <!--联系人条目-->
+    <item name="iv_contact_avatar" type="id">false</item>
+    <item name="tv_contact_name" type="id">false</item>
+
+    <!--SingleChat-->
+    <item name="ll_singlechat" type="id">false</item>
+    <item name="tv_singlechat_name" type="id">false</item>
+    <item name="et_send" type="id">false</item>
+    <item name="tv_message_time" type="id">false</item>
+    <item name="ll_message_time" type="id">false</item>
+
+
+    <item name="tv_right_text" type="id">false</item>
+    <item name="tv_left_text" type="id">false</item>
+    <item name="iv_right_avatar" type="id">false</item>
+    <item name="iv_left_avatar" type="id">false</item>
+    <item name="iv_right_image" type="id">false</item>
+    <item name="iv_left_image" type="id">false</item>
+
+    <!--本地图片-->
+    <item name="tv_image" type="id">false</item>
+    <!--拍照-->
+    <item name="tv_camera" type="id">false</item>
+
+
+    <!--Back按钮-->
+    <item name="rl_back" type="id">false</item>
+</resources>

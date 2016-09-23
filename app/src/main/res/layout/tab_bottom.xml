@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--底部tab标签-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="60dp"
+              android:background="#333333"
+              android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@id/ll_conversation"
+        style="@style/BottomLinearLayout">
+
+        <ImageButton
+            android:id="@id/ib_conversation"
+            style="@style/BottomImageButton"
+            android:src="@mipmap/tabbar_chat"/>
+
+        <TextView
+            android:id="@id/tv_conversation"
+            style="@style/BottomTextView"
+            android:text="会话"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/ll_contacts"
+        style="@style/BottomLinearLayout">
+
+        <ImageButton
+            android:id="@id/ib_contacts"
+            style="@style/BottomImageButton"
+            android:src="@mipmap/tabbar_contacts"/>
+
+        <TextView
+            android:id="@id/tv_contacts"
+            style="@style/BottomTextView"
+            android:text="联系人"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/ll_setting"
+        style="@style/BottomLinearLayout">
+
+        <ImageButton
+            android:id="@id/ib_setting"
+            style="@style/BottomImageButton"
+            android:src="@mipmap/tabbar_me"/>
+
+        <TextView
+            android:id="@id/tv_setting"
+            style="@style/BottomTextView"
+            android:text="设置"/>
+    </LinearLayout>
+
+</LinearLayout>

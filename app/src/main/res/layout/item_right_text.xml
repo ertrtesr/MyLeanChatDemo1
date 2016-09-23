@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--发消息的item布局-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+    <!--消息时间-->
+    <include layout="@layout/item_message_time"/>
+
+    <RelativeLayout
+        style="@style/ChatRightLayout"
+        android:layout_marginRight="5dp">
+
+        <!--文字消息-->
+        <TextView
+            android:id="@id/tv_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_right_avatar"
+            android:background="@drawable/selector_right_msg"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="3dp"
+            android:maxWidth="150dp"
+            android:minHeight="50dp"
+            android:text="我是发出的消息"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <!--文字右侧头像-->
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@id/iv_right_avatar"
+            style="@style/ChatAvatar"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/tv_right_text"
+            fresco:actualImageScaleType="centerCrop"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

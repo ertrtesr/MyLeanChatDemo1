@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--收消息的item布局-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <!--消息时间-->
+    <include layout="@layout/item_message_time"/>
+
+    <RelativeLayout
+        style="@style/ChatLeftLayout"
+        android:layout_marginLeft="5dp">
+
+        <!--头像-->
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@id/iv_left_avatar"
+            style="@style/ChatAvatar"
+            android:layout_marginLeft="3dp"
+            android:src="@mipmap/ic_launcher"
+            fresco:actualImageScaleType="centerCrop"/>
+
+        <!--文字消息-->
+        <TextView
+            android:id="@id/tv_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/iv_left_avatar"
+            android:background="@drawable/selector_left_msg"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="3dp"
+            android:maxWidth="150dp"
+            android:minHeight="50dp"
+            android:text="我是收到的消息"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

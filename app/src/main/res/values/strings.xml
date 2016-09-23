@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyLeanChatDemo1</string>
+
+    <string name="conversation">会话</string>
+    <string name="contacts">联系人</string>
+    <string name="setting">设置</string>
+</resources>

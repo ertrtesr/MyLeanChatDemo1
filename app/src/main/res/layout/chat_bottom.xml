@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/shape_chat_bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@id/et_send"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="5"
+            android:background="@drawable/bg_chat_input"
+            android:hint="发送新消息"
+            android:paddingLeft="8dp"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@id/btn_send"
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="#444444"
+                android:text="发送"
+                android:textColor="@android:color/white"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@id/iv_more"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/btn_chat_add"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <!--更多布局-->
+    <LinearLayout
+        android:id="@+id/ll_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <!--本地图片-->
+        <TextView
+            android:id="@id/tv_image"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_image"
+            android:gravity="center_horizontal"
+            android:text="图片"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#cccccc"/>
+
+        <!--拍照-->
+        <TextView
+            android:id="@id/tv_camera"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/selector_camera"
+            android:gravity="center_horizontal"
+            android:text="拍照"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+</LinearLayout>
