@@ -1,5 +1,6 @@
 package com.example.huangwenjian.myleanchatdemo1.activity;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -204,9 +205,13 @@ public class SingleChatActivity extends BaseActivity {
         toggleBottom();                                 //切换底部更多布局
     }
 
+    /**
+     * 进入图片选择页面
+     */
     @OnClick(R.id.tv_image)
     void selectImage() {
-
+        Intent intent = new Intent(this, PictureSelectActivity.class);
+        startActivityForResult(intent, Constants.REQUEST_CODE_PICTURE_SELECT);
     }
 
     @OnClick(R.id.tv_camera)
@@ -226,7 +231,6 @@ public class SingleChatActivity extends BaseActivity {
         msg.setTimeStamp(TimeUtils.getCurTimeMills());      //设置时间戳
         refreshMessageAdapter(msg);                         //只要一发消息不管成不成功,都要更新适配器,更新UI
         MessageAgent.getInstance().sendText(text);          //MessageAgent发出消息
-
     }
 
     /**

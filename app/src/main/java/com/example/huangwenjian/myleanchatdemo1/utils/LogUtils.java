@@ -20,7 +20,7 @@ public class LogUtils {
     /**
      * 日志输出时的TAG
      */
-    private static String mTag = "huangwenjian";
+    private static String mTag = "hwj";
     /**
      * 日志输出级别NONE
      */

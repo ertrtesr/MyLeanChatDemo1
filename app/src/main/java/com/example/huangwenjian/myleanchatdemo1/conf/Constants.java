@@ -24,4 +24,9 @@ public class Constants {
     //聊天对象
     public static final String OHTER_USER = "other_user";
     public static final String OTHER_USERNAME = "";
+
+    //图片选择请求
+    public static final int REQUEST_CODE_PICTURE_SELECT = 0;
+
+    public static final int IMAGE_SCAN_FINISHED = 1;            //图片扫描完成
 }
