@@ -61,4 +61,9 @@
 
     <!--Back按钮-->
     <item name="rl_back" type="id">false</item>
+
+    <!--图片选择页面-->
+    <item name="rv_picture_select" type="id">false</item>
+    <item name="btn_picture_preview" type="id">false</item>
+    <item name="btn_picture_send" type="id">false</item>
 </resources>
