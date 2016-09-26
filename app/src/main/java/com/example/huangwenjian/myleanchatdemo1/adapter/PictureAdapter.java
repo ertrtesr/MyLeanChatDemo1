@@ -22,6 +22,7 @@ import java.util.List;
 public class PictureAdapter extends RecyclerView.Adapter<PictureHolder> {
 
     private List<ImageInfo> mImages;
+    private boolean isSelected = false;
 
     public PictureAdapter() {
 
@@ -39,6 +40,12 @@ public class PictureAdapter extends RecyclerView.Adapter<PictureHolder> {
 
     @Override
     public void onBindViewHolder(PictureHolder holder, int position) {
+        ImageInfo imageInfo = mImages.get(position);
+        if (imageInfo.isSelected()) {
+            holder.iv_selected.setImageResource(R.mipmap.pictures_selected);
+        } else {
+            holder.iv_selected.setImageResource(R.mipmap.picture_unselected);
+        }
         holder.sdv_picture.setImageURI("file://" + mImages.get(position).getPath());
 //        holder.sdv_picture.setImageBitmap(localBitmap);
     }

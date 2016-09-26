@@ -2,12 +2,14 @@ package com.example.huangwenjian.myleanchatdemo1.activity;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.example.huangwenjian.myleanchatdemo1.R;
 import com.example.huangwenjian.myleanchatdemo1.adapter.PictureAdapter;
 import com.example.huangwenjian.myleanchatdemo1.base.BaseActivity;
+import com.example.huangwenjian.myleanchatdemo1.base.listener.OnRecyclerViewTouchListener;
 import com.example.huangwenjian.myleanchatdemo1.conf.Constants;
 import com.example.huangwenjian.myleanchatdemo1.entity.ImageInfo;
 import com.example.huangwenjian.myleanchatdemo1.manager.ThreadManager;
@@ -54,14 +57,15 @@ public class PictureSelectActivity extends BaseActivity {
     RecyclerView rv_picture_select;
 
     private ContentResolver mContentResolver;
-    private List<ImageInfo> mImages = new ArrayList<>();
-    private GridLayoutManager mGridLayoutManager;
+    private List<ImageInfo> mImages = new ArrayList<>();              //存放所有本地图片
+    private List<ImageInfo> mSelectedImages = new ArrayList<>();      //存放选中的图片
+    private GridLayoutManager mGridLayoutManager;                     //布局管理器
     private PictureAdapter mPictureAdapter;
 
     @Override
     protected void initView() {
         setContentView(R.layout.activity_picture_select);
-//        LoadingDialogUtils.show(this);                              //显示进度条
+        LoadingDialogUtils.show(this);                              //显示进度条
     }
 
     @Override
@@ -96,7 +100,51 @@ public class PictureSelectActivity extends BaseActivity {
 
     @Override
     public void initListener() {
+        //给recyclerview设置条目点击监听
+        rv_picture_select.addOnItemTouchListener(new OnRecyclerViewTouchListener(rv_picture_select,
+                new OnRecyclerViewTouchListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        ImageInfo info = mImages.get(position);
+                        if (info.isSelected()) {
+                            info.setSelected(false);
+                            mSelectedImages.remove(info);               //从选中的集合中移除
+                        } else {
+                            info.setSelected(true);
+                            mSelectedImages.add(info);                  //加入到选中的集合中
+                        }
+                        refreshSingleItem(position);                    //更新选中的条目,单条目刷新
+                        refreshButton();
+                    }
 
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                }));
+    }
+
+    /**
+     * 更新底部预览和发送按钮
+     */
+    private void refreshButton() {
+        if (mSelectedImages != null && mSelectedImages.size() > 0) {
+            btn_picture_preview.setText("预览(" + mSelectedImages.size() + ")");
+            btn_picture_preview.setBackgroundResource(R.drawable.shape_btn_common);
+            btn_picture_preview.setClickable(true);
+
+            btn_picture_send.setText("发送(" + mSelectedImages.size() + ")");
+            btn_picture_send.setBackgroundResource(R.drawable.shape_btn_common);
+            btn_picture_send.setClickable(true);
+        } else {
+            btn_picture_preview.setText("预览");
+            btn_picture_preview.setClickable(false);
+            btn_picture_preview.setBackgroundColor(Color.parseColor("#CCCCCC"));
+
+            btn_picture_send.setText("发送");
+            btn_picture_send.setClickable(false);
+            btn_picture_send.setBackgroundColor(Color.parseColor("#CCCCCC"));
+        }
     }
 
     @OnClick(R.id.rl_back)
@@ -119,9 +167,36 @@ public class PictureSelectActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 全局更新
+     *
+     * @param images
+     */
     private void refreshUI(List<ImageInfo> images) {
         mPictureAdapter.setImages(images);
         mPictureAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 更新指定位置的单条数据
+     *
+     * @param position
+     */
+    private void refreshSingleItem(int position) {
+        mPictureAdapter.notifyItemChanged(position);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        clearList();
+    }
+
+    private void clearList() {
+        mImages.clear();
+        mSelectedImages.clear();
+        mImages = null;
+        mSelectedImages = null;
     }
 
     /**
